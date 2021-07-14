@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<manifest xmlns="http://tizen.org/ns/packages" api-version="2.4" package="com.camera.softselfie" version="1.0.6">
+    <author email="widyo.wicaksono@gmail.com">Widyo Wicaksono</author>
+    <profile name="mobile"/>
+    <ui-application appid="com.camera.softselfie" exec="softselfie" hw-acceleration="on" multiple="false" nodisplay="false" taskmanage="true" type="capp">
+        <label>Soft Selfie</label>
+        <icon>icon.png</icon>
+    </ui-application>
+    <privileges>
+        <privilege>http://tizen.org/privilege/mediastorage</privilege>
+        <privilege>http://tizen.org/privilege/appmanager.launch</privilege>
+        <privilege>http://tizen.org/privilege/externalstorage.appdata</privilege>
+        <privilege>http://tizen.org/privilege/camera</privilege>
+        <privilege>http://tizen.org/privilege/externalstorage</privilege>
+        <privilege>http://tizen.org/privilege/content.write</privilege>
+    </privileges>
+    <feature name="http://tizen.org/feature/screen.size.normal.480.800">true</feature>
+</manifest>

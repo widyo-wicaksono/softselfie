@@ -1,0 +1,619 @@
+/*
+ * Copyright (c) 2016 Samsung Electronics Co., Ltd
+ *
+ * Licensed under the Flora License, Version 1.1 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *	http://floralicense.org/license/
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+#include "../../inc/edc_defines.h"
+
+#define IMAGE_PATH "../res/images/"
+
+#define FONT_NAME "font=SLP:style=Roman"
+
+images
+{	
+	image: IMAGE_PATH"viewfinder.png" COMP;
+	image: IMAGE_PATH"loading.png" COMP;	
+	image: IMAGE_PATH"shutter_up.png" COMP;
+	image: IMAGE_PATH"shutter_dn.png" COMP;
+	image: IMAGE_PATH"thumb_bg.png" COMP;
+	image: IMAGE_PATH"thumb_noimage.png" COMP;
+	image: IMAGE_PATH"apt_1_up.png" COMP;
+	image: IMAGE_PATH"apt_1_dn.png" COMP;
+	image: IMAGE_PATH"apt_2_up.png" COMP;
+	image: IMAGE_PATH"apt_2_dn.png" COMP;
+	image: IMAGE_PATH"apt_3_up.png" COMP;
+	image: IMAGE_PATH"apt_3_dn.png" COMP;
+	image: IMAGE_PATH"apt_4_up.png" COMP;
+	image: IMAGE_PATH"apt_4_dn.png" COMP;
+	image: IMAGE_PATH"rate.png" COMP;
+	image: IMAGE_PATH"changecamera.png" COMP;
+	image: IMAGE_PATH"bgbutton_Z3.png" COMP;
+	image: IMAGE_PATH"moderound.png" COMP;
+	image: IMAGE_PATH"modehorizontal.png" COMP;
+	image: IMAGE_PATH"modevertical.png" COMP;
+	image: IMAGE_PATH"softselfiewatermark.png" COMP;
+	
+} //images
+
+collections
+{
+
+    base_scale: 1.8;
+
+    group
+    {
+        name: GRP_MAIN;
+        parts
+        {
+            part
+            {
+                name: "bg";
+                type: RECT;
+                description
+                {
+                    fixed: 1 1;
+                    rel1 { relative: 0.0 0.0; }
+                    rel2 { relative: 1.0 1.0; }
+                    visible: 1;
+                    color: 0 0 0 255;
+                }
+            } //part										
+			
+			part
+            {
+				name: "loadscreen";
+                type: IMAGE;
+                description
+                {
+                    fixed: 1 1;
+                    rel1 { relative: 0.0 0.00;}
+                    rel2 { relative: 1.0 0.75;}
+                    visible: 1;
+                    image.normal: IMAGE_PATH"loading.png";
+                }
+            } //part		
+
+            part
+            {
+                name: "elm.swallow.content";
+                type: SWALLOW;
+                description
+                {
+                    rel1 { relative: 0.0 0.0; }
+                    rel2 { relative: 1.0 0.75; }
+                    visible: 1;
+                }
+            } //part						
+			
+			part
+            {
+				name: "bg_button";
+                type: IMAGE;
+                description
+                {
+                    fixed: 1 1;
+                    rel1 { relative: 0.0 0.63; }
+                    rel2 { relative: 1.0 1.0; }
+                    visible: 1;
+                    image.normal: IMAGE_PATH"bgbutton_Z3.png";
+                }
+            } //part
+			 part
+            {
+                name: "blur_radial";
+                type: IMAGE;
+                description
+                {
+                    fixed: 1 1;
+                    rel1 { relative: 0.71 0.79; }
+                    rel2 { relative: 0.9 0.9; }                    
+                    visible: 1;
+                    image.normal: IMAGE_PATH"moderound.png";
+                }
+                description {
+                    state: "not_selected" 0.0;
+					visible : 0;
+					rel1 { relative: 0.71 0.79; }
+                    rel2 { relative: 0.9 0.9; }             
+                    image.normal: IMAGE_PATH"moderound.png";
+                }
+            } //part
+			
+			 part
+            {
+                name: "blur_vertical";
+                type: IMAGE;
+                description
+                {
+                    fixed: 1 1;
+					rel1 { relative: 0.71 0.79; }
+                    rel2 { relative: 0.9 0.9; }                           
+                    visible: 0;
+                    image.normal: IMAGE_PATH"modevertical.png";
+                }
+                description {
+                    state: "selected" 0.0;
+					visible : 1;
+                    rel1 { relative: 0.71 0.79; }
+                    rel2 { relative: 0.9 0.9; }        
+                    image.normal: IMAGE_PATH"modevertical.png";
+                }
+            } //part
+			
+			 part
+            {
+                name: "blur_horizontal";
+                type: IMAGE;
+                description
+                {
+                    fixed: 1 1;
+                    rel1 { relative: 0.71 0.79; }
+                    rel2 { relative: 0.9 0.9; }                                
+                    visible: 0;
+                    image.normal: IMAGE_PATH"modehorizontal.png";
+                }
+                description {
+                    state: "selected" 0.0;
+					visible : 1;
+					rel1 { relative: 0.71 0.79; }
+                    rel2 { relative: 0.9 0.9; }           
+                    image.normal: IMAGE_PATH"modehorizontal.png";
+                }
+            } //part
+			
+            part
+            {
+                name: "timer_2";
+                type: IMAGE;
+                description
+                {
+                    fixed: 1 1;
+                    rel1 { relative: 0.06 0.63; }
+                    rel2 { relative: 0.26 0.75; }                    
+                    visible: 1;
+                    image.normal: IMAGE_PATH"apt_1_up.png";
+                }
+                description {
+                    state: "selected" 0.0;
+                    inherit: "default" 0.0;
+                    image.normal: IMAGE_PATH"apt_1_dn.png";
+                }
+            } //part
+
+            part
+            {
+                name: "timer_5";
+                type: IMAGE;
+                description
+                {
+                    fixed: 1 1;
+                    rel1 { relative: 0.28 0.63; }
+                    rel2 { relative: 0.48 0.75; }                   
+                    visible: 1;
+                    image.normal: IMAGE_PATH"apt_2_up.png";
+                }
+                description {
+                    state: "selected" 0.0;
+                    inherit: "default" 0.0;
+                    image.normal: IMAGE_PATH"apt_2_dn.png";
+                }
+            } //part
+
+            part
+            {
+                name: "timer_10";
+                type: IMAGE;
+                description
+                {
+                    fixed: 1 1;
+                    rel1 { relative: 0.5 0.63; }
+                    rel2 { relative: 0.7 0.75;  }                   
+                    visible: 1;
+                    image.normal: IMAGE_PATH"apt_3_up.png";
+                }
+                description {
+                    state: "selected" 0.0;
+                    inherit: "default" 0.0;
+                    image.normal: IMAGE_PATH"apt_3_dn.png";
+                }
+            } //part
+
+			part
+            {
+                name: "app_4";
+                type: IMAGE;
+                description
+                {
+                    fixed: 1 1;
+                    rel1 { relative: 0.7 0.63; }
+                    rel2 { relative: 0.9 0.75;  }                   
+                    visible: 1;
+                    image.normal: IMAGE_PATH"apt_4_up.png";
+                }
+                description {
+                    state: "selected" 0.0;
+                    inherit: "default" 0.0;
+                    image.normal: IMAGE_PATH"apt_4_dn.png";
+                }
+            } //part
+			
+            part
+            {
+                name: "timer_text";
+                type: TEXT;
+                scale: 1;
+                description {
+                    fixed: 1 1;
+                    state: "default" 0.0;
+                    rel1 { relative: 0.0 0.0; to: elm.swallow.content; }
+                    rel2 { relative: 1.0 1.0; to: elm.swallow.content;}
+                    color: 255 255 255 255;
+                    text {
+                        font: FONT_NAME;
+                        size: 30;
+                        min: 1 1;
+                        align: 0.5 0.5;
+                        ellipsis: -1;
+                    }
+                }
+            }					
+			
+            part
+            {
+                name: "shutter_button";
+                type: IMAGE;
+                description
+                {
+                    fixed: 1 1;
+                    rel1 { relative: 0.35 0.76; }  
+					rel2 { relative: 0.65 0.93; } 					                    
+                    visible: 1;
+                    image.normal: IMAGE_PATH"shutter_up.png";
+                }
+                description {
+                    state: "pressed" 0.0;
+                    inherit: "default" 0.0;
+                    image.normal: IMAGE_PATH"shutter_dn.png";
+                }
+            } //part
+			
+			part
+            {
+                name: "rate_button";
+                type: IMAGE;
+                description
+                {
+                    fixed: 1 1;
+                    rel1 { relative: 0.01 0.52; }  
+					rel2 { relative: 0.2 0.62; } 					                    
+                    visible: 1;
+                    image.normal: IMAGE_PATH"rate.png";
+                }
+                description {
+                    state: "pressed" 0.0;
+                    inherit: "default" 0.0;
+                    image.normal: IMAGE_PATH"rate.png";
+                }
+            } //part
+			
+			part
+            {
+                name: "cam_switch";
+                type: IMAGE;
+                description
+                {
+                    fixed: 1 1;
+                    rel1 { relative: 0.77 0.01; }  
+					rel2 { relative: 0.95 0.11; } 					                    
+                    visible: 1;
+                    image.normal: IMAGE_PATH"changecamera.png";
+                }
+				/*
+                description {
+                    state: "pressed" 0.0;
+                    inherit: "default" 0.0;
+                    image.normal: IMAGE_PATH"changecamera.png";
+                }
+				*/
+            } //part
+            part
+            {
+                name: "thumbnail_background";
+                type: IMAGE;
+                description
+                {
+                    fixed: 1 1;
+                    rel1 { relative: 0.05 0.78; }
+                    rel2 { relative: 0.23 0.91; }
+                    visible: 1;
+                    image.normal: IMAGE_PATH"thumb_bg.png";
+                }
+                description {
+                    state: "no_image" 0.0;
+                    inherit: "default" 0.0;
+                    image.normal: IMAGE_PATH"thumb_noimage.png";
+                }
+            } //part
+
+            part
+            {
+                name: "thumbnail";
+                type: SWALLOW;
+                description
+                {
+                    fixed: 1 1;
+                    visible: 1;
+                    rel1 { relative: 0 0; offset: 10 10; to: thumbnail_background; }
+                    rel2 { relative: 1.0 1.0; offset: -10 -10; to: thumbnail_background; }
+                }
+            }
+
+			
+			part
+            {
+				name: "watermark";
+                type: IMAGE;
+                description
+                {
+                    fixed: 1 1;
+                    rel1 { relative: 0.72 0.57; }
+                    rel2 { relative: 1.0 0.61; }
+                    visible: 1;
+                    image.normal: IMAGE_PATH"softselfiewatermark.png";
+                }
+            } //part
+			
+            programs
+            {
+                program
+                {
+                    name: "clicked_timer_2";
+                    signal: "mouse,clicked,1";
+                    source: "timer_2";
+                    script {
+                        set_state(PART:"timer_2", "selected", 0.0);
+                        set_state(PART:"timer_5", "default", 0.0);
+                        set_state(PART:"timer_10", "default", 0.0);
+						set_state(PART:"app_4", "default", 0.0);
+                        emit(EVENT_APT01_SELECTED, "timer_2");
+                    }  
+                } //program
+                program
+                {
+                    name: "clicked_timer_5";
+                    signal: "mouse,clicked,1";
+                    source: "timer_5";
+                    script {
+                        set_state(PART:"timer_5", "selected", 0.0);
+                        set_state(PART:"timer_2", "default", 0.0);
+                        set_state(PART:"timer_10", "default", 0.0);
+						set_state(PART:"app_4", "default", 0.0);
+                        emit(EVENT_APT02_SELECTED, "timer_5");
+                    }
+                } //program
+                program
+                {
+                    name: "clicked_timer_10";
+                    signal: "mouse,clicked,1";
+                    source: "timer_10";
+                    script {
+                        set_state(PART:"timer_10", "selected", 0.0);
+                        set_state(PART:"timer_2", "default", 0.0);
+                        set_state(PART:"timer_5", "default", 0.0);
+						set_state(PART:"app_4", "default", 0.0);
+                        emit(EVENT_APT03_SELECTED, "timer_10");
+                    }
+                } //program
+				 program
+                {
+                    name: "clicked_app_4";
+                    signal: "mouse,clicked,1";
+                    source: "app_4";
+                    script {
+                        set_state(PART:"app_4", "selected", 0.0);
+                        set_state(PART:"timer_2", "default", 0.0);
+                        set_state(PART:"timer_5", "default", 0.0);
+						set_state(PART:"timer_10", "default", 0.0);
+                        emit(EVENT_APT04_SELECTED, "app_4");
+                    }
+                } //program
+                program {
+                    name: "down_shutter";
+                    signal: "mouse,down,*";
+                    source: "shutter_button";
+                    script {
+                        set_state(PART:"shutter_button", "pressed", 0.0);
+                        emit("shutter_button_down", "shutter_button");
+                    }
+                }
+                program {
+                    name: "up_shutter";
+                    signal: "mouse,up,1";
+                    source: "shutter_button";
+                    script {
+                        set_state(PART:"shutter_button", "default", 0.0);
+                        emit("shutter_button_up", "shutter_button");
+                    }
+                }
+                program
+                {
+                    name: "clicked_shutter";
+                    signal: "mouse,clicked,1";
+                    source: "shutter_button";
+                    script {
+                        set_state(PART:"shutter_button", "default", 0.0);
+                        emit(EVENT_SHUTTER_CLICKED, "shutter_button");
+                    }
+                } //program
+				program
+                {
+                    name: "clicked_rate";
+                    signal: "mouse,clicked,1";
+                    source: "rate_button";
+                    script {
+                        set_state(PART:"rate_button", "default", 0.0);
+                        emit(EVENT_RATE_CLICKED, "shutter_button");
+                    }
+                } //program
+				program
+                {
+                    name: "switch_cam";
+                    signal: "mouse,clicked,1";
+                    source: "cam_switch";
+                    script {
+                        set_state(PART:"cam_switch", "default", 0.0);
+                        emit(EVENT_CAM_SWITCHED, "shutter_button");
+                    }
+                } //program
+                program
+                {
+                    name: "no_image";
+                    signal: "no_image";
+                    source: "thumbnail_background";
+                    script {
+                        set_state(PART:"thumbnail_background", "no_image", 0.0);
+                    }
+                } //program
+                program
+                {
+                    name: "default";
+                    signal: "default";
+                    source: "thumbnail_background";
+                    script {
+                        set_state(PART:"thumbnail_background", "default", 0.0);
+                    }
+                } //program
+				/*
+				program 
+				{ 
+					name: "animation,slided";
+					source: "nested_start_button";
+					signal: "mouse,up,1";
+					action: STATE_SET "slided" 0.0;     
+					target: "splashscreen";
+					transition: ACCEL 0.5;
+					after: "cam_start_preview";
+				}
+				program 
+				{ 
+					name: "animation,slidedback,back";					
+					signal: EVENT_BACK_FRONT_PAGE;
+					source: "splashscreen";
+					action: STATE_SET "default" 0.0;     
+					target: "splashscreen";
+					transition: ACCEL 0.5;					
+				}
+				
+				program {
+                    name: "down_start_button";
+                    signal: "mouse,down,*";
+                    source: "nested_start_button";
+                    script {
+                        set_state(PART:"nested_start_button", "pressed", 0.0);                        
+                    }
+                }
+                program {
+                    name: "up_start_button";
+                    signal: "mouse,up,1";
+                    source: "nested_start_button";
+                    script {
+                        set_state(PART:"nested_start_button", "default", 0.0);                        
+                    }
+                }
+                program
+                {
+                    name: "clicked_start_button";
+                    signal: "mouse,clicked,1";
+                    source: "nested_start_button";
+                    script {
+                        set_state(PART:"nested_start_button", "default", 0.0);                        
+                    }
+                } //program
+				*/
+				program
+                {
+                    name: "cam_start_preview";                       
+                    script {                        
+                        emit(EVENT_CAM_START_PREVIEW, "shutter_button");
+                    }
+                } //program				
+				/*
+				program {
+                    name: "down_exit_button";
+                    signal: "mouse,down,*";
+                    source: "nested_exit_button";
+                    script {
+                        set_state(PART:"nested_exit_button", "pressed", 0.0);                        
+                    }
+                }
+                program {
+                    name: "up_exit_button";
+                    signal: "mouse,up,1";
+                    source: "nested_exit_button";
+                    script {
+                        set_state(PART:"nested_exit_button", "default", 0.0);                        
+                    }
+                }
+                program
+                {
+                    name: "clicked_exit_button";
+                    signal: "mouse,clicked,1";
+                    source: "nested_exit_button";
+                    script {
+                        set_state(PART:"nested_exit_button", "default", 0.0);                        
+						emit(EVENT_SPLASH_EXIT, "exit_button");
+                    }
+                } //program			
+				*/
+				program
+                {
+                    name: "pr_blur_radial";
+                    signal: "mouse,clicked,1";
+                    source: "blur_radial";
+                    script {
+                        set_state(PART:"blur_radial", "not_selected", 0.0);
+                        set_state(PART:"blur_vertical", "selected", 0.0);
+                        set_state(PART:"blur_horizontal", "default", 0.0);						
+                        emit(EVENT_BLUR_VER_SELECTED, "blur_vertical");
+                    }
+                } //program
+                program
+                {
+                   name: "pr_blur_vertical";
+                    signal: "mouse,clicked,1";
+                    source: "blur_vertical";
+                    script {
+                        set_state(PART:"blur_radial", "not_selected", 0.0);
+                        set_state(PART:"blur_vertical", "default", 0.0);
+                        set_state(PART:"blur_horizontal", "selected", 0.0);						
+                        emit(EVENT_BLUR_HOR_SELECTED, "blur_horizontal");
+                    }
+                } //program
+                program
+                {
+                    name: "pr_blur_horizontal";
+                    signal: "mouse,clicked,1";
+                    source: "blur_horizontal";
+                    script {
+                        set_state(PART:"blur_radial", "default", 0.0);
+                        set_state(PART:"blur_vertical", "default", 0.0);
+                        set_state(PART:"blur_horizontal", "default", 0.0);						
+                        emit(EVENT_BLUR_RAD_SELECTED, "blur_radial");
+                    }
+                } //program				
+            } //programs
+
+        } //parts
+    } //group
+} //collections
