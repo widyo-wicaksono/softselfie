@@ -1,2 +1,2 @@
 # softselfie
-Winner of Tizen App Incentive Challenge. This app create fake bokeh effect for your selfie
+Winner of Tizen App Incentive Challenge. This app creates fake bokeh effect for your selfie.
