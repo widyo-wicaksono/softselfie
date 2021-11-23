@@ -1,5 +1,5 @@
 # softselfie
-Winner of Tizen App Incentive Challenge for May 2017. This app adds fake bokeh effect for your selfie. For samsung Z1, Z2, and Z3 (all have been discontinued)
+Winner of Tizen App Incentive Challenge for May 2017. This app adds a fake bokeh effect to your selfie. For Samsung Z1, Z2, and Z3 (all have been discontinued)
 
 (http://incentive.tizenstore.com/static_html/html/web/top100.html)
 
