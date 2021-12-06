@@ -8,3 +8,4 @@ Winner of Tizen App Incentive Challenge for May 2017. This app adds a fake bokeh
 ![BANNER](https://user-images.githubusercontent.com/64301921/125557119-cb19153e-b014-469e-94c6-878620a6077c.jpg)
 ![IMG_20210116_110541](https://user-images.githubusercontent.com/64301921/125557264-e33acac8-574d-408e-b16c-4fa9ce19c46e.jpg)
 
+![WinAmpun ver 0 0 2 2021-12-07 06-19-11](https://user-images.githubusercontent.com/64301921/144938589-681de1e5-9f0a-453f-a3f8-107234c1ec9c.gif)
